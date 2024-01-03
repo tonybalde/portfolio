@@ -38,7 +38,7 @@ const Sidenav = () => {
                href="#main" 
                className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200">
               <GrBlog size={20} />
-              <span className="pl-4">Contact</span>
+              <span className="pl-4">Blog</span>
             </a>
           </div>
         )
@@ -57,12 +57,21 @@ const Sidenav = () => {
           </a>
           <a href="#projects" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
           <GrProjects size={20} />
+          <span className="text-black text-lg font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
+              {'< Projects />'}
+          </span>
           </a>
           <a href="https://drive.google.com/file/d/1MQU_rUYcIW2x6-Ea4q932-qs-r0QhRzH/view?usp=share_link" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300" target='_blank'>
             <BiNews size={20} />
+          <span className="text-black text-lg font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
+            {'< Resume />'}
+          </span>  
           </a>
           <a href="#main" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
             <GrBlog size={20} />
+          <span className="text-black text-lg font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
+            {'< Blog />'}
+          </span>  
           </a>
         </div>
       </div>
