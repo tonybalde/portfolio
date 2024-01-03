@@ -1,6 +1,6 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
-import {FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn} from "react-icons/fa"
+import {FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope} from "react-icons/fa"
 
 function Main() {
   return (
@@ -30,6 +30,7 @@ function Main() {
                     <a href="https://www.twitter.com/tonybaldev" target="_blank"><FaTwitter className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                     <a href="https://www.instagram.com/tonybaldev" target="_blank"><FaInstagram className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                     <a href="https://www.linkedin.com/in/antonio-baldessari" target="_blank"><FaLinkedinIn className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
+                    <a href="mailto:tonybaldessari@outlook.com" target="_blank"><FaEnvelope className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                 </div>
             </div>
         </div>
