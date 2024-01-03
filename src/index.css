@@ -5,3 +5,10 @@
 * {
     scroll-behavior: smooth;
 }
+
+/* CSS for showing text on hover */
+a:hover .invisible {
+    opacity: 1;
+    visibility: visible;
+}
+
