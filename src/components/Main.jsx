@@ -28,7 +28,6 @@ function Main() {
                 </h2>
                 <div className="flex justify-between pt-6 max-w-[200px] w-full"> {/* Here are the Social */}
                     <a href="https://www.twitter.com/tonybaldev" target="_blank"><FaTwitter className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
-                    <a href="https://www.facebook.com/tonybalde" target="_blank"><FaFacebookF className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                     <a href="https://www.instagram.com/tonybaldev" target="_blank"><FaInstagram className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                     <a href="https://www.linkedin.com/in/antonio-baldessari" target="_blank"><FaLinkedinIn className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                 </div>
