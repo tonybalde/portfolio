@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {AiOutlineMenu, AiOutlineHome, AiOutlineProject, AiOutlineMail} from 'react-icons/ai';
-import {BsPerson} from 'react-icons/bs';
+import {AiOutlineMenu, AiOutlineHome, AiOutlineMail} from 'react-icons/ai';
 import {GrProjects} from 'react-icons/gr';
+import {BiNews} from "react-icons/bi";
+import { GrBlog } from "react-icons/gr";
 
 const Sidenav = () => {
     const [nav, setNav] = useState(false)
@@ -30,13 +31,13 @@ const Sidenav = () => {
             <a onClick={handleNav}
                href="https://drive.google.com/file/d/1MQU_rUYcIW2x6-Ea4q932-qs-r0QhRzH/view?usp=share_link" 
                className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200" target='_blank'>
-              <BsPerson size={20} />
+              <BiNews size={20} />
               <span className="pl-4">Resume</span>
             </a>
             <a onClick={handleNav}
                href="#main" 
                className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200">
-              <AiOutlineMail size={20} />
+              <GrBlog size={20} />
               <span className="pl-4">Contact</span>
             </a>
           </div>
@@ -45,7 +46,7 @@ const Sidenav = () => {
           ''
         )
       }
-
+{/* THIS IS THE DESKTOP MODE */}
       <div className="md:block hidden fixed top-[25%] z-10">
         <div className="flex flex-col">
           <a href="#main" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
@@ -55,10 +56,10 @@ const Sidenav = () => {
           <GrProjects size={20} />
           </a>
           <a href="https://drive.google.com/file/d/1MQU_rUYcIW2x6-Ea4q932-qs-r0QhRzH/view?usp=share_link" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300" target='_blank'>
-            <BsPerson size={20} />
+            <BiNews size={20} />
           </a>
           <a href="#main" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
-            <AiOutlineMail size={20} />
+            <GrBlog size={20} />
           </a>
         </div>
       </div>
