@@ -16,9 +16,6 @@ const Projects = () => {
             <ProjectItem img={defaultImg} title="App Three"/>
             <ProjectItem img={defaultImg} title="App Four"/>
         </div>
-        <a href="/moreprojects">
-          <p className="flex justify-center m-auto mt-12 gap-2 custom-width text-center p-3 rounded-lg bg-blue-500 text-white text-xl font-bold cursor-pointer hover:text-black ease-in duration-300">More Projects</p>
-        </a>
     </div>
   )
 }
