@@ -21,3 +21,9 @@ hr{
 .custom-width{
     width: 300px;
 }
+
+.profile-image{
+    height: auto;
+    width: 300px;
+    
+}

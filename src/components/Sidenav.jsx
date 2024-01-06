@@ -28,12 +28,6 @@ const Sidenav = () => {
                <GrProjects size={20} />
               <span className="pl-4">Projects</span>
             </a>
-            <a onClick={handleNav}
-               href="https://drive.google.com/file/d/1MQU_rUYcIW2x6-Ea4q932-qs-r0QhRzH/view?usp=share_link" 
-               className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200" target='_blank'>
-              <BiNews size={20} />
-              <span className="pl-4">Resume</span>
-            </a>
           </div>
         )
         : (
@@ -55,11 +49,11 @@ const Sidenav = () => {
               {'< Projects />'}
           </span>
           </a>
-          <a href="https://drive.google.com/file/d/1MQU_rUYcIW2x6-Ea4q932-qs-r0QhRzH/view?usp=share_link" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300" target='_blank'>
-            <BiNews size={20} />
+          <a href="#projects" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+          <GrProjects size={20} />
           <span className="text-white text-lg pl-2 pr-2 bg-blue-500 rounded-md font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
-            {'< Resume />'}
-          </span>  
+              {'< Skills />'}
+          </span>
           </a>
         </div>
       </div>
