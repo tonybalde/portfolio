@@ -27,8 +27,8 @@ function Main() {
                     style={{ fontSize: "1em", paddingLeft: '5px' }}
                 />
                 </h2>
-                <p className="flex sm:text-md sm:mx-2 md:mx-0 text-xl m-4 pt-4 text-black custom-margin">
-                Welcome to my litte corner of the web! I'm based in Buenos Aires, Argentina. I have a passion for turning lines of code into websites. I constantly seeking growth and thrive in collaborative environments, where effective communication allows me to work seamlessly with teams. This is my portfolio, a testament to my dedication, creativity, and expertise in Front-End Development. Thank you for exploring my work, and I look forward to discussing potential opportunities for collaboration and growth.
+                <p className="flex sm:text-md sm:mx-2 md:mx-0 text-xl m-4 pt-4 text-black custom-text">
+                Welcome to my litte corner of the web! I'm based in Buenos Aires, Argentina. I have a passion for turning lines of code into websites. I constantly seeking growth and thrive in collaborative environments, where effective communication allows me to work seamlessly with teams. Thank you for exploring my work, and I look forward to discussing potential opportunities for collaboration and growth.
                 </p>
                 <div className="flex justify-around gap-2 pt-4 align-center"> {/* Here are the Social */}
                     <a href="http://www.linkedin.com/in/antonio-baldessari" target="_blank"><FaLinkedinIn className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
