@@ -26,6 +26,9 @@ function Main() {
                     style={{ fontSize: "1em", paddingLeft: '5px' }}
                 />
                 </h2>
+                <p className="flex sm:text-md p-4 text-xl pt-4 text-black">
+                I'm based in Buenos Aires, Argentina, with a passion for crafting captivating websites that blend creativity with functionality. Through my expertise delivering responsive, dynamic, and user-friendly interfaces. Constantly seeking growth, I stay updated with the latest industry trends and thrive in collaborative environments, where effective communication allows me to work seamlessly with teams. This is my portfolio, a testament to my dedication, creativity, and expertise in Front-End Development. Thank you for exploring my work, and I look forward to discussing potential opportunities for collaboration and growth.
+                </p>
                 <div className="flex justify-around gap-2 pt-6 align-center"> {/* Here are the Social */}
                     <a href="http://www.linkedin.com/in/antonio-baldessari" target="_blank"><FaLinkedinIn className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
                     <a href="http://www.github.com/tonybalde" target="_blank"><FaGithub className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
