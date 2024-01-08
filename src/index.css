@@ -36,6 +36,10 @@ hr{
         font-size: 24px;
     }
 
+    .typing{
+        padding-top: 2px;
+    }
+
     .profile-img{
         height: 100px;
         width: auto;
@@ -43,7 +47,8 @@ hr{
 
     .custom-text{
         font-size: 16px;
-        line-height: 22px;
+        line-height: 20px;
+        padding-top: 1px;
     }    
 }
     
@@ -61,6 +66,7 @@ hr{
     .custom-text{
         font-size: 16px;
         line-height: 20px;
+        padding-top: 1px;
     }    
 }
     
