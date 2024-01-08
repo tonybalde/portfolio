@@ -5,3 +5,27 @@
 * {
     scroll-behavior: smooth;
 }
+
+/* CSS for showing text on hover */
+a:hover .invisible {
+    opacity: 1;
+    visibility: visible;
+}
+
+hr{
+    background-color: #001b5e;
+    height: 2px;
+    margin-top: 18px;
+}
+
+.custom-width{
+    width: 300px;
+}
+
+.profile-img{
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    
+}
