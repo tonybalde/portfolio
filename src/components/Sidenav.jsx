@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {AiOutlineMenu, AiOutlineHome, AiOutlineMail} from 'react-icons/ai';
+import {AiOutlineMenu, AiOutlineHome} from 'react-icons/ai';
 import {GrProjects} from 'react-icons/gr';
-import {BiNews} from "react-icons/bi";
-import { GrBlog } from "react-icons/gr";
+import { GiSkills } from "react-icons/gi";
 
 const Sidenav = () => {
     const [nav, setNav] = useState(false)
@@ -28,6 +27,12 @@ const Sidenav = () => {
                <GrProjects size={20} />
               <span className="pl-4">Projects</span>
             </a>
+            <a onClick={handleNav}
+               href="#skills" 
+               className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200">
+               <GiSkills size={20} />
+              <span className="pl-4">Skills</span>
+            </a>
           </div>
         )
         : (
@@ -50,7 +55,7 @@ const Sidenav = () => {
           </span>
           </a>
           <a href="#projects" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
-          <GrProjects size={20} />
+          <GiSkills size={20} />
           <span className="text-white text-lg pl-2 pr-2 bg-blue-500 rounded-md font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
               {'< Skills />'}
           </span>

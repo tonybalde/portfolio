@@ -22,8 +22,10 @@ hr{
     width: 300px;
 }
 
-.profile-image{
-    height: auto;
-    width: 300px;
+.profile-img{
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+    margin-bottom: 4px;
     
 }
