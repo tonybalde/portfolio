@@ -31,6 +31,11 @@ hr{
 }
 
 @media screen and (max-width:475px){
+    
+    .title-txt{
+        font-size: 24px;
+    }
+
     .profile-img{
         height: 150px;
         width: auto;
@@ -43,8 +48,12 @@ hr{
 }
     
 @media screen and (max-width:280px){
+    .title-txt{
+        font-size: 22px;
+    }
+
     .profile-img{
-        height: 100px;
+        height: 80px;
         width: auto;
     }
 
