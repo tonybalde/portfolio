@@ -54,7 +54,7 @@ const Sidenav = () => {
               {'< Projects />'}
           </span>
           </a>
-          <a href="#projects" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+          <a href="#skills" className="rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
           <GiSkills size={20} />
           <span className="text-white text-lg pl-2 pr-2 bg-blue-500 rounded-md font-bold opacity-0 transition-opacity absolute top-1/2 transform -translate-y-1/2 invisible whitespace-nowrap" style={{ left: '62px' }}>
               {'< Skills />'}

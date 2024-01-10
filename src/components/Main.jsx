@@ -14,7 +14,7 @@ function Main() {
                 I'm a
                 <TypeAnimation
                     sequence={[
-                    "Software Engineer", // Types 'One'
+                    "Full-Stack Developer", // Types 'One'
                     2000, // Waits 1s
                     "Coder", // Deletes 'One' and types 'Two'
                     2000, // Waits 2s
