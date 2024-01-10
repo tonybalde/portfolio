@@ -26,7 +26,7 @@ const Skills = () => {
         <hr className="custom-hr bg-blue-500"/>
         </h1>
         <div className="flex gap-8 items-center flex-wrap ">
-            <h3 className="text-xl p-2 font-bold">Front-End</h3>
+            <h3 className="text-2xl p-2 font-bold">Front-End</h3>
             <div className="flex p-4 gap-8 justify-center flex-wrap">
               <img src={html} className="tech-icon" alt=""/>
               <img src={css} className="tech-icon" alt=""/>
@@ -37,7 +37,7 @@ const Skills = () => {
             </div>
         </div>
         <div className="flex gap-8 items-center flex-wrap ">
-            <h3 className="text-xl p-2 font-bold">Back-End</h3>
+            <h3 className="text-2xl p-2 font-bold">Back-End</h3>
             <div className="flex p-4 gap-8 justify-center flex-wrap">
               <img src={nodejs} className="tech-icon" alt=""/>
               <img src={expressjs} className="tech-icon" alt=""/>
@@ -47,7 +47,7 @@ const Skills = () => {
             </div>
         </div>
         <div className="flex gap-8 items-center flex-wrap ">
-            <h3 className="text-xl p-2 font-bold">Tools</h3>
+            <h3 className="text-2xl p-2 font-bold">Tools</h3>
             <div className="flex p-4 gap-8 justify-center flex-wrap">
               <img src={git} className="tech-icon" alt=""/>
               <img src={github} className="tech-icon" alt=""/>
