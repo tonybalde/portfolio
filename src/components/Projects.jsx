@@ -1,6 +1,8 @@
 import React from 'react'
 import ProjectItem from './ProjectItem'
 import defaultImg from '../assets/default-preview.gif'
+import demodevcv from '../assets/demodevcv.gif'
+
 
 const Projects = () => {
   return (
@@ -11,10 +13,10 @@ const Projects = () => {
         </h1>
         <p className="text-center text-xl py-8 font-bold">These are some of my projects</p>
         <div className="grid sm:grid-cols-2 gap-12">
-            <ProjectItem img={defaultImg} title="App One" description="ReactJS, Express, MongoDB, Mongoose, JWT, and other stuff here to mention....." repo="http://www.github.com/tonybalde" live="http://www.yahoo.com" />
-            <ProjectItem img={defaultImg} title="App Two"/>
-            <ProjectItem img={defaultImg} title="App Three"/>
-            <ProjectItem img={defaultImg} title="App Four"/>
+            <ProjectItem img={defaultImg} title="Only.Devs" description="ReactJS, Express, MongoDB, Mongoose, JWT, and other stuff here to mention....." repo="http://www.github.com/tonybalde" live="http://www.yahoo.com" />
+            <ProjectItem img={defaultImg} title="Mini Message Board"/>
+            <ProjectItem img={demodevcv} title="Dev.CV"/>
+            <ProjectItem img={defaultImg} title="RobotCards"/>
         </div>
     </div>
   )
