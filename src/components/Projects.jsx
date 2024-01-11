@@ -16,10 +16,10 @@ const Projects = () => {
         </h1>
         <p className="text-center text-xl py-8 font-bold">These are some of my projects</p>
         <div className="grid sm:grid-cols-2 gap-12">
-            <ProjectItem img={demoonlydevs} title="Only.Devs" description="ReactJS, Express, MongoDB, Mongoose, JWT, and other stuff here to mention....." repo="http://www.github.com/tonybalde" live="http://www.yahoo.com" />
-            <ProjectItem img={demominimessageboard} title="Mini Message Board"/>
-            <ProjectItem img={demodevcv} title="Dev.CV"/>
-            <ProjectItem img={demorobotcard} title="RobotCards"/>
+            <ProjectItem img={demoonlydevs} title="Only.Devs" description="A full-stack members only app built with NodeJS, Express, MongoDB, Mongoose, PUG and Bootstrap" repo="https://github.com/tonybalde/onlydevs" live="https://onlydevs.adaptable.app" />
+            <ProjectItem img={demominimessageboard} title="Mini Message Board" description="A small full-stack mini message board built with NodeJS, Express, MongoDB, Mongoose, PUG, and CSS" repo="https://github.com/tonybalde/mini-message-board" live="https://elegant-pullover-cod.cyclic.app/" />
+            <ProjectItem img={demodevcv} title="Dev.CV" description="An app for tailor your developer resume, you can print it or save it as a PDF file, built with ReactJS, JavaScript and CSS" repo="https://github.com/tonybalde/reactcv" live="https://devcv.vercel.app/" />
+            <ProjectItem img={demorobotcard} title="RobotCards" description="A memory card game built with ReactJS, JavaScript and CSS" repo="https://github.com/tonybalde/robotcard" live="https://robotcard-self.vercel.app/" />
         </div>
     </div>
   )
