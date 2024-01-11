@@ -36,7 +36,7 @@ function Main() {
                     <a href="mailto:tonybaldessari@outlook.com" target="_blank" className="flex gap-2"><FaEnvelope className="cursor-pointer hover:scale-110 transition ease-in" size={20}/>tonybaldessari@outook.com</a>
                 </div>
                 <div className="border-2 border-black rounded-xl items-center bg-blue-500 text-black font-bold pl-2 pr-2 pt-2 pb-2 mt-4">
-                  <a href="resume.pdf" target="_blank" className="flex gap-2"><FaFileDownload  className="cursor-pointer hover:scale-110 transition ease-in" size={20}/>Download Resume</a>
+                  <a href="Resume-Tony-Baldessari.pdf" target="_blank" className="flex gap-2"><FaFileDownload  className="cursor-pointer hover:scale-110 transition ease-in" size={20}/>Download Resume</a>
                 </div>
             </div>
         </div>
