@@ -15,11 +15,11 @@ function Main() {
                 <TypeAnimation
                     sequence={[
                     "Full-Stack Developer", // Types 'One'
-                    2000, // Waits 1s
+                    1000, // Waits 1s
                     "Coder", // Deletes 'One' and types 'Two'
-                    2000, // Waits 2s
+                    1000, // Waits 2s
                     "Tech Enthusiast",
-                    2000,
+                    1000,
                     ]}
                     wrapper="span"
                     cursor={true}
@@ -28,7 +28,8 @@ function Main() {
                 />
                 </h2>
                 <p className="flex sm:text-md sm:mx-2 md:mx-0 text-xl m-4 pt-4 text-black custom-text">
-                Welcome to my litte corner of the web! I'm based in Buenos Aires, Argentina. I have a passion for turning lines of code into websites. I constantly seeking growth and thrive in collaborative environments, where effective communication allows me to work seamlessly with teams. Thank you for exploring my work, and I look forward to discussing potential opportunities for collaboration and growth.
+                Welcome to my litte corner of the web! I'm based in Buenos Aires, Argentina. 
+                I love creating user-friendly websites and web apps.
                 </p>
                 <div className="flex justify-around gap-2 pt-4 align-center socials"> {/* Here are the Social */}
                     <a href="http://www.linkedin.com/in/antonio-baldessari" target="_blank"><FaLinkedinIn className="cursor-pointer hover:scale-110 transition ease-in" size={20}/></a>
