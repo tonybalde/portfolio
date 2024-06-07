@@ -1,6 +1,7 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { FaLinkedinIn, FaEnvelope, FaFileDownload, FaGithub } from "react-icons/fa"
+import wavingHand from '../../public/waving-hand.gif'
 
 function Main() {
   return (
@@ -9,12 +10,15 @@ function Main() {
         <div className="w-full h-screen absolute top-0 left-0 bg-white/50">
             <div className="max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-start items-center">
                 <img src="tony.jpg" alt="Tony Baldessari" className="profile-img border-black border-4" />
-                <h1 className="sm:text-5xl text-4xl font-bold text-black text-center title-txt">Hi!👋 I'm Tony Baldessari</h1>
+                {/* <h1 className="sm:text-5xl text-4xl font-bold text-black text-center title-txt">Hi! 👋 I'm Tony Baldessari</h1> */}
+                <div className="flex flex-row items-center justify-center">
+                  <h1 className="sm:text-5xl text-4xl font-bold text-black title-txt">Hi! <img src={wavingHand} alt="Waving Hand" className="h-16 w-16 ml-2"/>I'm Tony Baldessari</h1>
+                </div>
                 <h2 className="flex sm:text-3xl text-2xl pt-4 text-black typing">
                 I'm a
                 <TypeAnimation
                     sequence={[
-                    "Full-Stack Developer", // Types 'One'
+                    "Front-End Developer", // Types 'One'
                     1000, // Waits 1s
                     "Coder", // Deletes 'One' and types 'Two'
                     1000, // Waits 2s

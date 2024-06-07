@@ -12,7 +12,7 @@ const ProjectItem = ({img, title, description, repo, live}) => {
                 {title}
             </h3>
             <p className="pb-3 pt-1 text-sm text-white text-center">{description}</p>
-            <div class="flex gap-2 justify-center">
+            <div className="flex gap-2 justify-center">
               <a href={repo} target='_blank'>
                   <p className="flex gap-2 text-center p-3 rounded-lg bg-white text-gray-700 font-bold cursor-pointer text-sm"><FaGithub size={18} /> Repo</p>
               </a>
