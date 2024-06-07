@@ -1,7 +1,7 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { FaLinkedinIn, FaEnvelope, FaFileDownload, FaGithub } from "react-icons/fa"
-import wavingHand from '../../public/waving-hand.gif'
+import wavingHand from '../assets/waving-hand.gif'
 
 function Main() {
   return (
