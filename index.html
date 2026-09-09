@@ -1,43 +1,134 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en" data-track="frontend" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tony Baldessari — Frontend & WordPress Developer</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Tony Baldessari — Frontend & WordPress Developer
+  </title>
+
   <meta
     name="description"
     content="Portfolio of Tony Baldessari, Frontend and WordPress Developer."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+  >
+
+  <!-- Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="styles.css">
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 </head>
 
+
 <body>
+
 <header class="site-nav">
+
   <div class="nav-inner">
-    <a href="#top" class="logo" id="logoLink">
-      &lt; Tony <span>Baldessari</span> /&gt;
+
+    <!-- Logo -->
+
+    <a
+      href="#top"
+      class="logo"
+      id="logoLink"
+    >
+      &lt; Tony
+      <span>Baldessari</span>
+      /&gt;
     </a>
 
-    <nav class="links" aria-label="Main navigation">
-      <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#projects" data-i18n="nav.projects">Projects</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+
+    <!-- Desktop navigation -->
+
+    <nav
+      class="links"
+      aria-label="Main navigation"
+    >
+
+      <a
+        href="#about"
+        data-i18n="nav.about"
+      >
+        About
+      </a>
+
+      <a
+        href="#projects"
+        data-i18n="nav.projects"
+      >
+        Projects
+      </a>
+
+      <a
+        href="#contact"
+        data-i18n="nav.contact"
+      >
+        Contact
+      </a>
+
     </nav>
 
+
     <div class="nav-actions">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
-        <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+
+      <!-- Desktop language selector -->
+
+      <div
+        class="lang-toggle desktop-lang-toggle"
+        role="group"
+        aria-label="Language"
+      >
+
+        <button
+          type="button"
+          data-lang-btn="es"
+          aria-pressed="false"
+        >
+          ES
+        </button>
+
+        <button
+          type="button"
+          data-lang-btn="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+
       </div>
+
+
+      <!-- Theme -->
 
       <button
         type="button"
@@ -47,7 +138,9 @@
         aria-checked="true"
         aria-label="Switch theme"
       >
+
         <span class="theme-toggle-knob">
+
           <svg
             id="themeIcon"
             viewBox="0 0 24 24"
@@ -58,10 +151,20 @@
             stroke-linejoin="round"
             aria-hidden="true"
           ></svg>
+
         </span>
+
       </button>
 
-      <div class="cv-dropdown" id="cvDropdown" data-open="false">
+
+      <!-- CV dropdown -->
+
+      <div
+        class="cv-dropdown"
+        id="cvDropdown"
+        data-open="false"
+      >
+
         <button
           type="button"
           class="cv-btn"
@@ -69,10 +172,19 @@
           aria-expanded="false"
           aria-haspopup="true"
         >
-          <span data-i18n="nav.cv">Download Resumé</span>
+
+          <span data-i18n="nav.cv">
+            Download Resumé
+          </span>
+
         </button>
 
-        <div class="cv-menu" role="menu">
+
+        <div
+          class="cv-menu"
+          role="menu"
+        >
+
           <a
             role="menuitem"
             href="cv/wordpress-en.pdf"
@@ -80,9 +192,17 @@
             data-track="wordpress"
             data-cv-link="wordpress"
           >
-            <span data-i18n="cv.wordpress">WordPress Resumé</span>
-            <span class="tag">WP</span>
+
+            <span data-i18n="cv.wordpress">
+              WordPress Resumé
+            </span>
+
+            <span class="tag">
+              WP
+            </span>
+
           </a>
+
 
           <a
             role="menuitem"
@@ -91,11 +211,23 @@
             data-track="frontend"
             data-cv-link="frontend"
           >
-            <span data-i18n="cv.frontend">Frontend Resumé</span>
-            <span class="tag">FE</span>
+
+            <span data-i18n="cv.frontend">
+              Frontend Resumé
+            </span>
+
+            <span class="tag">
+              FE
+            </span>
+
           </a>
+
         </div>
+
       </div>
+
+
+      <!-- Hamburger -->
 
       <button
         type="button"
@@ -107,8 +239,13 @@
       >
         <span></span>
       </button>
+
     </div>
+
   </div>
+
+
+  <!-- Mobile menu -->
 
   <nav
     class="mobile-links"
@@ -116,33 +253,108 @@
     data-open="false"
     aria-label="Mobile navigation"
   >
-    <a href="#about" data-i18n="nav.about">About</a>
-    <a href="#projects" data-i18n="nav.projects">Projects</a>
-    <a href="#contact" data-i18n="nav.contact">Contact</a>
+
+    <a
+      href="#about"
+      data-i18n="nav.about"
+    >
+      About
+    </a>
+
+    <a
+      href="#projects"
+      data-i18n="nav.projects"
+    >
+      Projects
+    </a>
+
+    <a
+      href="#contact"
+      data-i18n="nav.contact"
+    >
+      Contact
+    </a>
+
+
+    <!-- Mobile language selector -->
+
+    <div class="mobile-lang-section">
+
+      <span class="mobile-lang-label">
+        Language
+      </span>
+
+      <div
+        class="lang-toggle mobile-lang-toggle"
+        role="group"
+        aria-label="Language"
+      >
+
+        <button
+          type="button"
+          data-lang-btn="es"
+          aria-pressed="false"
+        >
+          ES
+        </button>
+
+        <button
+          type="button"
+          data-lang-btn="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+
+      </div>
+
+    </div>
+
   </nav>
+
 </header>
 
+
+
 <main id="top">
+
+  <!-- ====================================================
+       HERO
+  ===================================================== -->
+
   <section class="hero wrap">
+
     <div class="hero-copy">
-      <p class="eyebrow" id="heroEyebrow">Frontend Developer</p>
+
+      <p
+        class="eyebrow"
+        id="heroEyebrow"
+      >
+        Frontend Developer
+      </p>
 
       <h1 id="heroTitle">
         I build interfaces that turn ideas into products.
       </h1>
 
-      <p class="lead" id="heroLead">
-        I build responsive web interfaces and applications with modern frontend technologies,
-        with a focus on usability, clarity and maintainable code.
+      <p
+        class="lead"
+        id="heroLead"
+      >
+        I build responsive web interfaces and applications
+        with modern frontend technologies.
       </p>
 
+
       <div class="switch-rig">
+
         <div
           class="switch"
           id="modeSwitch"
           role="radiogroup"
           aria-label="Switch between WordPress and Frontend"
         >
+
           <button
             type="button"
             class="switch-option"
@@ -150,9 +362,13 @@
             data-track-label="wordpress"
             aria-checked="false"
           >
+
             <span class="switch-dot"></span>
+
             WordPress
+
           </button>
+
 
           <button
             type="button"
@@ -162,78 +378,220 @@
             aria-checked="true"
             data-active="true"
           >
+
             <span class="switch-dot"></span>
+
             Frontend
+
           </button>
+
         </div>
 
+
         <p class="switch-caption">
-          <span data-i18n="switch.caption">Showing:</span>
-          <strong id="switchCaptionValue">Frontend</strong>
+
+          <span data-i18n="switch.caption">
+            Showing:
+          </span>
+
+          <strong id="switchCaptionValue">
+            Frontend
+          </strong>
+
         </p>
+
       </div>
+
 
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary" data-i18n="hero.ctaPrimary">
+
+        <a
+          href="#projects"
+          class="btn btn-primary"
+          data-i18n="hero.ctaPrimary"
+        >
           View projects
         </a>
+
       </div>
+
     </div>
+
   </section>
 
-  <section class="about wrap" id="about">
+
+
+  <!-- ====================================================
+       ABOUT
+  ===================================================== -->
+
+  <section
+    class="about wrap"
+    id="about"
+  >
+
     <div>
-      <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
-      <h2 data-i18n="about.title">Who I am</h2>
+
+      <p
+        class="eyebrow"
+        data-i18n="about.eyebrow"
+      >
+        About me
+      </p>
+
+      <h2 data-i18n="about.title">
+        Who I am
+      </h2>
+
     </div>
+
 
     <div class="about-body">
+
       <p id="aboutP1"></p>
+
       <p id="aboutP2"></p>
 
-      <div class="about-tags" id="skillsList"></div>
+      <div
+        class="about-tags"
+        id="skillsList"
+      ></div>
+
     </div>
+
   </section>
 
-  <section class="projects wrap" id="projects">
+
+
+  <!-- ====================================================
+       PROJECTS
+  ===================================================== -->
+
+  <section
+    class="projects wrap"
+    id="projects"
+  >
+
     <div class="projects-head">
+
       <div>
-        <p class="eyebrow" data-i18n="projects.eyebrow">Work</p>
-        <h2 data-i18n="projects.title">Projects</h2>
+
+        <p
+          class="eyebrow"
+          data-i18n="projects.eyebrow"
+        >
+          Work
+        </p>
+
+        <h2 data-i18n="projects.title">
+          Projects
+        </h2>
+
       </div>
 
-      <p class="track-note" id="trackNote"></p>
+
+      <p
+        class="track-note"
+        id="trackNote"
+      ></p>
+
     </div>
 
-    <div class="project-grid" id="projectGrid"></div>
+
+    <div
+      class="project-grid"
+      id="projectGrid"
+    ></div>
+
   </section>
 
-  <section class="contact-section wrap" id="contact">
-    <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+
+
+  <!-- ====================================================
+       CONTACT
+  ===================================================== -->
+
+  <section
+    class="contact-section wrap"
+    id="contact"
+  >
+
+    <p
+      class="eyebrow"
+      data-i18n="contact.eyebrow"
+    >
+      Contact
+    </p>
+
 
     <div class="contact-grid">
+
       <div class="contact-intro">
-        <h2 data-i18n="contact.title">Get in touch</h2>
+
+        <h2 data-i18n="contact.title">
+          Get in touch
+        </h2>
+
         <p data-i18n="contact.lead">
-          Have a project in mind? Tell me about it and I'll get back to you as soon as I can.
+          Have a project in mind?
+          Tell me about it.
         </p>
+
       </div>
 
-      <form class="contact-form" id="contactForm">
+
+      <form
+        class="contact-form"
+        id="contactForm"
+      >
+
         <label for="cf-name">
-          <span data-i18n="contact.name">Name</span>
-          <input type="text" id="cf-name" name="name" required>
+
+          <span data-i18n="contact.name">
+            Name
+          </span>
+
+          <input
+            type="text"
+            id="cf-name"
+            name="name"
+            required
+          >
+
         </label>
+
 
         <label for="cf-email">
-          <span data-i18n="contact.email">Email</span>
-          <input type="email" id="cf-email" name="email" required>
+
+          <span data-i18n="contact.email">
+            Email
+          </span>
+
+          <input
+            type="email"
+            id="cf-email"
+            name="email"
+            required
+          >
+
         </label>
 
+
         <label for="cf-message">
-          <span data-i18n="contact.message">Message</span>
-          <textarea id="cf-message" name="message" rows="5" required></textarea>
+
+          <span data-i18n="contact.message">
+            Message
+          </span>
+
+          <textarea
+            id="cf-message"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
+
         </label>
+
 
         <button
           type="submit"
@@ -243,23 +601,41 @@
           Send message
         </button>
 
+
         <p
           class="contact-status"
           id="contactStatus"
           data-show="false"
           aria-live="polite"
         ></p>
+
       </form>
+
     </div>
+
   </section>
+
 </main>
 
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
 <footer>
+
   <div class="wrap footer-inner">
-    <p data-i18n="footer.text">© 2026 Tony Baldessari</p>
+
+    <p data-i18n="footer.text">
+      © 2026 Tony Baldessari
+    </p>
+
 
     <div class="footer-links">
+
       <div class="footer-email-wrap">
+
         <button
           type="button"
           id="emailCopyBtn"
@@ -269,6 +645,7 @@
           Email
         </button>
 
+
         <span
           class="email-toast"
           id="emailToast"
@@ -277,7 +654,9 @@
         >
           Email copied
         </span>
+
       </div>
+
 
       <a
         href="https://www.github.com/tonybalde"
@@ -287,6 +666,7 @@
         GitHub
       </a>
 
+
       <a
         href="https://www.linkedin.com/in/antonio-baldessari"
         target="_blank"
@@ -294,10 +674,16 @@
       >
         LinkedIn
       </a>
+
     </div>
+
   </div>
+
 </footer>
 
+
 <script src="script.js"></script>
+
 </body>
+
 </html>
