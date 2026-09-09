@@ -555,7 +555,6 @@
   /* =====================================================
      CV
   ===================================================== */
-
   function updateCvLinks(lang) {
     document
       .querySelectorAll("[data-cv-link]")
@@ -567,7 +566,7 @@
 
         link.setAttribute(
           "href",
-          `cv/${track}-${lang}.pdf`
+          `/assets/cv/tony-baldessari-${track}-${lang}.pdf`
         );
       });
   }
