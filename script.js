@@ -1587,23 +1587,24 @@
      CONTACT FORM - RESEND / VERCEL
   ===================================================== */
 
+  /* =====================================================
+     CONTACT FORM - RESEND / VERCEL / TURNSTILE
+  ===================================================== */
+
   const contactForm =
     document.getElementById(
       "contactForm"
     );
-
 
   const contactStatus =
     document.getElementById(
       "contactStatus"
     );
 
-
   contactForm.addEventListener(
     "submit",
     async event => {
       event.preventDefault();
-
 
       const name =
         document
@@ -1613,7 +1614,6 @@
           .value
           .trim();
 
-
       const fromEmail =
         document
           .getElementById(
@@ -1621,7 +1621,6 @@
           )
           .value
           .trim();
-
 
       const message =
         document
@@ -1631,18 +1630,15 @@
           .value
           .trim();
 
-
       const lang =
         html.getAttribute(
           "data-lang"
         ) || "en";
 
-
       const submitButton =
         contactForm.querySelector(
           'button[type="submit"]'
         );
-
 
       if (
         !name ||
@@ -1654,21 +1650,45 @@
             ? "Completá todos los campos."
             : "Please complete all fields.";
 
+        contactStatus.setAttribute(
+          "data-show",
+          "true"
+        );
+
+        return;
+      }
+
+      /* -----------------------------------------------
+         TURNSTILE TOKEN
+      ------------------------------------------------ */
+
+      const turnstileTokenInput =
+        contactForm.querySelector(
+          '[name="cf-turnstile-response"]'
+        );
+
+      const turnstileToken =
+        turnstileTokenInput
+          ?.value
+          ?.trim();
+
+      if (!turnstileToken) {
+        contactStatus.textContent =
+          lang === "es"
+            ? "Completá la verificación de seguridad."
+            : "Please complete the security verification.";
 
         contactStatus.setAttribute(
           "data-show",
           "true"
         );
 
-
         return;
       }
-
 
       if (submitButton) {
         submitButton.disabled =
           true;
-
 
         submitButton.textContent =
           lang === "es"
@@ -1676,12 +1696,10 @@
             : "Sending...";
       }
 
-
       contactStatus.setAttribute(
         "data-show",
         "false"
       );
-
 
       try {
         const response =
@@ -1702,15 +1720,14 @@
                   email:
                     fromEmail,
                   message,
-                  lang
+                  lang,
+                  turnstileToken
                 })
             }
           );
 
-
         const result =
           await response.json();
-
 
         if (!response.ok) {
           throw new Error(
@@ -1719,20 +1736,24 @@
           );
         }
 
-
         contactStatus.textContent =
           lang === "es"
             ? "¡Mensaje enviado correctamente!"
             : "Message sent successfully!";
-
 
         contactStatus.setAttribute(
           "data-show",
           "true"
         );
 
-
         contactForm.reset();
+
+        if (
+          typeof turnstile !==
+          "undefined"
+        ) {
+          turnstile.reset();
+        }
       }
 
       catch (error) {
@@ -1741,17 +1762,22 @@
           error
         );
 
-
         contactStatus.textContent =
           lang === "es"
             ? "No se pudo enviar el mensaje. Intentá nuevamente."
             : "The message could not be sent. Please try again.";
 
-
         contactStatus.setAttribute(
           "data-show",
           "true"
         );
+
+        if (
+          typeof turnstile !==
+          "undefined"
+        ) {
+          turnstile.reset();
+        }
       }
 
       finally {
@@ -1759,13 +1785,11 @@
           submitButton.disabled =
             false;
 
-
           submitButton.textContent =
             lang === "es"
               ? "Enviar mensaje"
               : "Send message";
         }
-
 
         setTimeout(
           () => {
@@ -1779,6 +1803,7 @@
       }
     }
   );
+
   /* =====================================================
      COPY EMAIL
   ===================================================== */

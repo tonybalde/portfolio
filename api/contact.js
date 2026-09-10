@@ -7,17 +7,31 @@ module.exports = async function handler(req, res) {
     });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const resendApiKey =
+    process.env.RESEND_API_KEY;
 
-  if (!apiKey) {
-    console.error("RESEND_API_KEY is not available");
+  const turnstileSecretKey =
+    process.env.TURNSTILE_SECRET_KEY;
+
+  if (!resendApiKey) {
+    console.error(
+      "RESEND_API_KEY is not available"
+    );
 
     return res.status(500).json({
       error: "Email service is not configured",
     });
   }
 
-  const resend = new Resend(apiKey);
+  if (!turnstileSecretKey) {
+    console.error(
+      "TURNSTILE_SECRET_KEY is not available"
+    );
+
+    return res.status(500).json({
+      error: "Security service is not configured",
+    });
+  }
 
   try {
     const {
@@ -25,25 +39,43 @@ module.exports = async function handler(req, res) {
       email,
       message,
       lang,
+      turnstileToken,
     } = req.body || {};
 
-    if (!name || !email || !message) {
+    /* =====================================================
+       BASIC VALIDATION
+    ===================================================== */
+
+    if (
+      !name ||
+      !email ||
+      !message
+    ) {
       return res.status(400).json({
         error: "Missing required fields",
       });
     }
 
-    const cleanName = String(name)
-      .trim()
-      .slice(0, 100);
+    if (!turnstileToken) {
+      return res.status(400).json({
+        error: "Security verification required",
+      });
+    }
 
-    const cleanEmail = String(email)
-      .trim()
-      .slice(0, 200);
+    const cleanName =
+      String(name)
+        .trim()
+        .slice(0, 100);
 
-    const cleanMessage = String(message)
-      .trim()
-      .slice(0, 5000);
+    const cleanEmail =
+      String(email)
+        .trim()
+        .slice(0, 200);
+
+    const cleanMessage =
+      String(message)
+        .trim()
+        .slice(0, 5000);
 
     const cleanLang =
       lang === "es"
@@ -53,11 +85,93 @@ module.exports = async function handler(req, res) {
     const emailRegex =
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(cleanEmail)) {
+    if (
+      !emailRegex.test(cleanEmail)
+    ) {
       return res.status(400).json({
         error: "Invalid email address",
       });
     }
+
+    /* =====================================================
+       CLOUDFLARE TURNSTILE VALIDATION
+    ===================================================== */
+
+    const turnstileResponse =
+      await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/x-www-form-urlencoded",
+          },
+
+          body:
+            new URLSearchParams({
+              secret:
+                turnstileSecretKey,
+
+              response:
+                String(
+                  turnstileToken
+                ),
+            }),
+        }
+      );
+
+    const turnstileResult =
+      await turnstileResponse.json();
+
+    if (
+      !turnstileResult.success
+    ) {
+      console.error(
+        "Turnstile verification failed:",
+        turnstileResult[
+          "error-codes"
+        ]
+      );
+
+      return res.status(403).json({
+        error: "Security verification failed",
+      });
+    }
+
+    /* =====================================================
+       OPTIONAL HOSTNAME CHECK
+    ===================================================== */
+
+    const allowedHostnames = [
+      "tonybaldessari.dev",
+      "www.tonybaldessari.dev",
+    ];
+
+    if (
+      turnstileResult.hostname &&
+      !allowedHostnames.includes(
+        turnstileResult.hostname
+      )
+    ) {
+      console.error(
+        "Unexpected Turnstile hostname:",
+        turnstileResult.hostname
+      );
+
+      return res.status(403).json({
+        error: "Invalid security verification",
+      });
+    }
+
+    /* =====================================================
+       RESEND
+    ===================================================== */
+
+    const resend =
+      new Resend(
+        resendApiKey
+      );
 
     const content =
       cleanLang === "es"
@@ -106,7 +220,10 @@ module.exports = async function handler(req, res) {
               "Sent from tonybaldessari.dev",
           };
 
-    const { data, error } =
+    const {
+      data,
+      error,
+    } =
       await resend.emails.send({
         from:
           "Tony Baldessari Portfolio <contact@tonybaldessari.dev>",
@@ -115,7 +232,8 @@ module.exports = async function handler(req, res) {
           "tonybaldessari@outlook.com",
         ],
 
-        replyTo: cleanEmail,
+        replyTo:
+          cleanEmail,
 
         subject:
           content.subject,
@@ -149,19 +267,35 @@ ${cleanMessage}
             </p>
 
             <p>
-              <strong>${content.nameLabel}:</strong>
-              ${escapeHtml(cleanName)}
+              <strong>
+                ${content.nameLabel}:
+              </strong>
+
+              ${escapeHtml(
+                cleanName
+              )}
             </p>
 
             <p>
-              <strong>${content.emailLabel}:</strong>
-              <a href="mailto:${escapeHtml(cleanEmail)}">
-                ${escapeHtml(cleanEmail)}
+              <strong>
+                ${content.emailLabel}:
+              </strong>
+
+              <a
+                href="mailto:${escapeHtml(
+                  cleanEmail
+                )}"
+              >
+                ${escapeHtml(
+                  cleanEmail
+                )}
               </a>
             </p>
 
             <p>
-              <strong>${content.messageLabel}:</strong>
+              <strong>
+                ${content.messageLabel}:
+              </strong>
             </p>
 
             <div
@@ -171,7 +305,9 @@ ${cleanMessage}
                 padding: 16px;
                 white-space: pre-wrap;
               "
-            >${escapeHtml(cleanMessage)}</div>
+            >${escapeHtml(
+              cleanMessage
+            )}</div>
 
             <hr
               style="
@@ -200,7 +336,8 @@ ${cleanMessage}
       );
 
       return res.status(500).json({
-        error: "Unable to send email",
+        error:
+          "Unable to send email",
       });
     }
 
@@ -208,23 +345,41 @@ ${cleanMessage}
       success: true,
       id: data?.id,
     });
-  } catch (error) {
+  }
+
+  catch (error) {
     console.error(
       "Contact API error:",
       error
     );
 
     return res.status(500).json({
-      error: "Internal server error",
+      error:
+        "Internal server error",
     });
   }
 };
 
 function escapeHtml(value) {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 }
