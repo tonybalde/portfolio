@@ -40,7 +40,31 @@ module.exports = async function handler(req, res) {
       message,
       lang,
       turnstileToken,
+      website,
     } = req.body || {};
+
+    /* =====================================================
+       HONEYPOT ANTI-SPAM
+    ===================================================== */
+
+    if (
+      website &&
+      String(website).trim() !== ""
+    ) {
+      console.warn(
+        "Honeypot triggered"
+      );
+
+      /*
+        Respondemos como si el envío
+        hubiese sido exitoso para no
+        revelar el mecanismo al bot.
+      */
+
+      return res.status(200).json({
+        success: true,
+      });
+    }
 
     /* =====================================================
        BASIC VALIDATION
@@ -140,7 +164,7 @@ module.exports = async function handler(req, res) {
     }
 
     /* =====================================================
-       OPTIONAL HOSTNAME CHECK
+       HOSTNAME CHECK
     ===================================================== */
 
     const allowedHostnames = [
