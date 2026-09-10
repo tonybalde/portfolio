@@ -1584,9 +1584,7 @@
 
 
   /* =====================================================
-     CONTACT FORM
-     Por ahora usa mailto.
-     Después lo conectamos al correo de Hostinger.
+     CONTACT FORM - RESEND / VERCEL
   ===================================================== */
 
   const contactForm =
@@ -1603,7 +1601,7 @@
 
   contactForm.addEventListener(
     "submit",
-    event => {
+    async event => {
       event.preventDefault();
 
 
@@ -1634,55 +1632,153 @@
           .trim();
 
 
-      const subject =
-        `Portfolio contact — ${name}`;
-
-
-      const body =
-        `${message}\n\n—\n${name} (${fromEmail})`;
-
-
-      const mailto =
-        `mailto:tonybaldessari@outlook.com` +
-        `?subject=${encodeURIComponent(subject)}` +
-        `&body=${encodeURIComponent(body)}`;
-
-
-      window.location.href =
-        mailto;
-
-
       const lang =
         html.getAttribute(
           "data-lang"
         ) || "en";
 
 
-      contactStatus.textContent =
-        dict[lang][
-          "contact.status"
-        ];
+      const submitButton =
+        contactForm.querySelector(
+          'button[type="submit"]'
+        );
+
+
+      if (
+        !name ||
+        !fromEmail ||
+        !message
+      ) {
+        contactStatus.textContent =
+          lang === "es"
+            ? "Completá todos los campos."
+            : "Please complete all fields.";
+
+
+        contactStatus.setAttribute(
+          "data-show",
+          "true"
+        );
+
+
+        return;
+      }
+
+
+      if (submitButton) {
+        submitButton.disabled =
+          true;
+
+
+        submitButton.textContent =
+          lang === "es"
+            ? "Enviando..."
+            : "Sending...";
+      }
 
 
       contactStatus.setAttribute(
         "data-show",
-        "true"
+        "false"
       );
 
 
-      setTimeout(
-        () => {
-          contactStatus.setAttribute(
-            "data-show",
-            "false"
+      try {
+        const response =
+          await fetch(
+            "/api/contact",
+            {
+              method:
+                "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify({
+                  name,
+                  email:
+                    fromEmail,
+                  message,
+                  lang
+                })
+            }
           );
-        },
-        4000
-      );
+
+
+        const result =
+          await response.json();
+
+
+        if (!response.ok) {
+          throw new Error(
+            result.error ||
+              "Unable to send message"
+          );
+        }
+
+
+        contactStatus.textContent =
+          lang === "es"
+            ? "¡Mensaje enviado correctamente!"
+            : "Message sent successfully!";
+
+
+        contactStatus.setAttribute(
+          "data-show",
+          "true"
+        );
+
+
+        contactForm.reset();
+      }
+
+      catch (error) {
+        console.error(
+          "Contact form error:",
+          error
+        );
+
+
+        contactStatus.textContent =
+          lang === "es"
+            ? "No se pudo enviar el mensaje. Intentá nuevamente."
+            : "The message could not be sent. Please try again.";
+
+
+        contactStatus.setAttribute(
+          "data-show",
+          "true"
+        );
+      }
+
+      finally {
+        if (submitButton) {
+          submitButton.disabled =
+            false;
+
+
+          submitButton.textContent =
+            lang === "es"
+              ? "Enviar mensaje"
+              : "Send message";
+        }
+
+
+        setTimeout(
+          () => {
+            contactStatus.setAttribute(
+              "data-show",
+              "false"
+            );
+          },
+          6000
+        );
+      }
     }
   );
-
-
   /* =====================================================
      COPY EMAIL
   ===================================================== */
